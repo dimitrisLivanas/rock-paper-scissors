@@ -16,7 +16,7 @@ function getComputerChoice() {
 function getPlayerChoice() {
   let playerSelection = prompt(
     "Please choose R for 'Rock', P for 'Paper' or S for 'Scissors'"
-  ).toLowerCase();
+  ).toLowerCase().trim();
 
   switch (playerSelection) {
     case "r":
