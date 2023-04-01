@@ -6,5 +6,9 @@ let computerSelection;
 
 /* Function that randomly returns "Rock", "Paper" or "Scissors" */
 function getComputerChoice() {
-    
+    const choiceList = [r,p,s];
+    let computerSelection = choiceList[Math.floor(Math.random()*choiceList.length)];
+    console.log(computerSelection);
 }
+
+getComputerChoice();
