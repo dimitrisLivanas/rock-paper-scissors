@@ -1,7 +1,6 @@
 let r = "Rock";
 let p = "Paper";
 let s = "Scissors";
-r < p < s < r;
 let playerSelection;
 let computerSelection;
 
@@ -43,19 +42,43 @@ function getPlayerChoice() {
   }
 }
 
+/* Function that takes the player's and computer's choices, compares them and keeps score (score does not work as intended) */
 function playRound() {
+  let playerScore = 0;
+  let computerScore = 0;
   pChoice = getPlayerChoice(playerSelection);
   cpuChoice = getComputerChoice(computerSelection);
-  if (pChoice > cpuChoice) {
+  if (
+    (pChoice === r && cpuChoice === s) ||
+    (pChoice === p && cpuChoice === r) ||
+    (pChoice === s && cpuChoice === p)
+  ) {
     console.log(`The computer chose ${cpuChoice}`);
     console.log(`${pChoice} VS ${cpuChoice}, You WON!`);
-  } else if (pChoice < cpuChoice) {
+    playerScore += 1;
+  } else if (
+    (pChoice === s && cpuChoice === r) ||
+    (pChoice === r && cpuChoice === p) ||
+    (pChoice === p && cpuChoice === s)
+  ) {
     console.log(`The computer chose ${cpuChoice}`);
     console.log(`${pChoice} VS ${cpuChoice}, You LOSE!`);
+    computerScore += 1;
   } else {
     console.log(`The computer chose ${cpuChoice}`);
     console.log(`${pChoice} VS ${cpuChoice}, It's a DRAW!`);
   }
+  return playerScore, computerScore;
 }
 
-playRound();
+/* Function that plays the game 5 times */
+function game() {
+  playRound();
+  playRound();
+  playRound();
+  playRound();
+  playRound();
+}
+
+game();
+
