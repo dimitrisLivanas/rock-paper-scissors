@@ -3,6 +3,8 @@ let p = "Paper";
 let s = "Scissors";
 let playerSelection;
 let computerSelection;
+let playerScore = 0;
+let computerScore = 0;
 
 /* Function that randomly returns "Rock", "Paper" or "Scissors" */
 function getComputerChoice() {
@@ -16,7 +18,9 @@ function getComputerChoice() {
 function getPlayerChoice() {
   let playerSelection = prompt(
     "Please choose R for 'Rock', P for 'Paper' or S for 'Scissors'"
-  ).toLowerCase().trim();
+  )
+    .toLowerCase()
+    .trim();
 
   switch (playerSelection) {
     case "r":
@@ -44,8 +48,6 @@ function getPlayerChoice() {
 
 /* Function that takes the player's and computer's choices, compares them and keeps score (score does not work as intended) */
 function playRound() {
-  let playerScore = 0;
-  let computerScore = 0;
   pChoice = getPlayerChoice(playerSelection);
   cpuChoice = getComputerChoice(computerSelection);
   if (
@@ -56,6 +58,8 @@ function playRound() {
     console.log(`The computer chose ${cpuChoice}`);
     console.log(`${pChoice} VS ${cpuChoice}, You WON!`);
     playerScore += 1;
+    console.log(`Human: ${playerScore} - Computer: ${computerScore}`);
+    return playerScore;
   } else if (
     (pChoice === s && cpuChoice === r) ||
     (pChoice === r && cpuChoice === p) ||
@@ -64,11 +68,12 @@ function playRound() {
     console.log(`The computer chose ${cpuChoice}`);
     console.log(`${pChoice} VS ${cpuChoice}, You LOSE!`);
     computerScore += 1;
+    console.log(`Human: ${playerScore} - Computer: ${computerScore}`);
+    return computerScore;
   } else {
     console.log(`The computer chose ${cpuChoice}`);
     console.log(`${pChoice} VS ${cpuChoice}, It's a DRAW!`);
   }
-  return playerScore, computerScore;
 }
 
 /* Function that plays the game 5 times */
@@ -78,7 +83,14 @@ function game() {
   playRound();
   playRound();
   playRound();
+
+  if (playerScore > computerScore) {
+    console.log(`Human Wins!`);
+  } else if (playerScore < computerScore) {
+    console.log("Machine Wins!");
+  } else {
+    console.log("You live to fight another day");
+  }
 }
 
 game();
-
