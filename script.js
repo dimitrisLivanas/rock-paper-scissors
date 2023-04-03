@@ -76,7 +76,7 @@ function playRound() {
   }
 }
 
-/* Function that plays the game 5 times */
+/* Function that plays the game 5 times, checks the score and announces the winner */
 function game() {
   playRound();
   playRound();
@@ -85,7 +85,7 @@ function game() {
   playRound();
 
   if (playerScore > computerScore) {
-    console.log(`Human Wins!`);
+    console.log("Human Wins!");
   } else if (playerScore < computerScore) {
     console.log("Machine Wins!");
   } else {
