@@ -46,7 +46,7 @@ function getPlayerChoice() {
   }
 }
 
-/* Function that takes the player's and computer's choices, compares them and keeps score (score does not work as intended) */
+/* Function that takes the player's and computer's choices, compares them and keeps score */
 function playRound() {
   pChoice = getPlayerChoice(playerSelection);
   cpuChoice = getComputerChoice(computerSelection);
